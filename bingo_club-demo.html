@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BINGO CLUB</title><style>
+
+:root{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:#f4f2fd;background:#101019;font-synthesis:none}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 85% 5%,#4a28653d,transparent 42%),radial-gradient(ellipse at 0 50%,#223c4538,transparent 50%);min-height:100vh}button,input{font:inherit}button{cursor:pointer;border:0;border-radius:14px;padding:15px 22px;background:#c7f36b;color:#18220b;font-weight:750;transition:transform .15s}button:hover{transform:translateY(-2px)}button:disabled{opacity:.4;cursor:default;transform:none}.secondary{background:#ffffff0b;color:#e1dcee;border:1px solid #ffffff18}header{max-width:1200px;margin:auto;padding:28px 30px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff12}.brand{display:flex;gap:12px;text-decoration:none;color:#c7f36b;font-size:32px;font-weight:850}.brand span{font-size:18px;letter-spacing:2px}.brand small{display:block;color:#9692a9;font-size:10px;letter-spacing:1px;margin-top:5px}.pill{border:1px solid #ffffff1b;border-radius:30px;padding:7px 12px;color:#c7f36b;font-size:11px;white-space:nowrap}main{max-width:1140px;margin:auto;padding:0 24px}.intro{padding:42px 0 26px}.eyebrow{color:#a69cb9;font-size:10px;letter-spacing:2.5px;font-weight:700}h1{font-size:clamp(32px,5vw,55px);line-height:1.25;margin:12px 0;letter-spacing:-2px}h1 em{font-style:normal;color:#c7f36b}p{color:#9791a8;font-size:13px;line-height:1.8}h2{font-size:19px;margin:10px 0 22px}.panel{padding:26px;background:#1b1a27;border:1px solid #ffffff10;border-radius:24px;box-shadow:0 15px 45px #00000012}#setup{max-width:650px}label{display:block;font-size:12px;color:#b1aabd}input{display:block;width:100%;background:#101019;border:1px solid #ffffff20;color:white;border-radius:12px;padding:14px;margin:10px 0 20px;outline-color:#c7f36b}.actions{display:flex;gap:10px;flex-wrap:wrap}.hint{font-size:11px;margin-bottom:0}.layout{display:grid;grid-template-columns:1.15fr 1fr;gap:20px}nav{display:flex;gap:10px;margin:0 0 18px}.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:8px}.sectionhead h2{margin-bottom:18px}.cardgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}.letter{text-align:center;color:#b6a3e2;font-size:16px;letter-spacing:3px;font-weight:800;padding-bottom:5px}.cell{aspect-ratio:1;display:flex;align-items:center;justify-content:center;background:#292736;border-radius:12px;font-size:clamp(18px,3vw,29px);font-weight:750;color:#e3deee}.cell.hit{background:#c7f36b;color:#202b10;box-shadow:0 0 18px #c7f36b16}.cell.free{font-size:10px;line-height:1.4;text-align:center}.stage{text-align:center;background:radial-gradient(circle at 50% 38%,#69508a33,transparent 62%),#1b1a27}#ball{width:170px;height:170px;display:flex;align-items:center;justify-content:center;border-radius:50%;margin:28px auto 20px;background:radial-gradient(circle at 35% 25%,#e4d8ff,#ac89e0 65%,#8061ac);box-shadow:0 0 0 12px #b390e510,0 20px 35px #0005;color:#2c1c46;font-size:80px;font-weight:850}#draw{width:100%}.board{display:grid;grid-template-columns:repeat(15,1fr);gap:5px}.num{font-size:10px;aspect-ratio:1;display:grid;place-items:center;color:#666176;background:#252330;border-radius:5px}.num.on{color:#d8c3ff;background:#665084}.numbers{grid-column:1/-1}#history{display:flex;gap:8px;margin:0 0 20px;flex-wrap:wrap}.chip{padding:9px 13px;border-radius:30px;background:#302a41;color:#d5c2f0;font-weight:750;font-size:13px}.person{display:flex;justify-content:space-between;padding:13px 0;border-top:1px solid #ffffff0d;font-size:13px;gap:12px}.result{color:#c7f36b;font-size:12px}footer{text-align:center;padding:35px;color:#666073;font-size:11px;letter-spacing:1px}footer p{font-size:10px}.textbutton{font-size:11px;padding:8px;background:transparent;color:#aaa1bc}#notice:not(:empty){border-radius:12px;background:#c7f36b18;color:#c7f36b;padding:14px;margin-bottom:18px;font-size:13px}[hidden]{display:none!important}@media(max-width:650px){header{padding:20px}.layout{grid-template-columns:1fr}.intro{padding-top:28px}.panel{padding:20px}.board{grid-template-columns:repeat(10,1fr)}.numbers{grid-column:auto}.cell{font-size:26px}#ball{width:150px;height:150px}.brand small{font-size:9px}}
+
+:root .soundbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 22px;padding:14px 16px;border:1px solid #ffffff14;border-radius:16px;background:#1b1a27}.soundbar button{padding:10px 14px;font-size:12px}.soundbar .volume-label{display:flex;align-items:center;gap:8px;font-size:12px}.soundbar input[type=range]{display:inline-block;width:100px;margin:0;padding:0;accent-color:#c7f36b}.soundbar output{min-width:35px;color:#c7f36b}.soundbar #soundStatus{font-size:11px;color:#aaa1bb}@media(max-width:650px){.soundbar{gap:10px}.soundbar #soundStatus{flex-basis:100%}}
+
+</style></head><body>
+<header><a class="brand" href="#">✳ <span>BINGO CLUB<small>みんなで、同じワクワクを。</small></span></a><span id="connection" class="pill">接続中</span></header>
+<main><section class="intro"><div class="eyebrow">LET'S MAKE SOME NOISE</div><h1>今夜の主役は、<br><em>あなたかも。</em></h1><p>カードをひらいて、幸運を待とう。</p></section>
+<section class="soundbar" aria-label="効果音の設定"><button id="soundToggle" class="secondary" aria-pressed="false">♪ 音をオン</button><label class="volume-label" for="soundVolume">音量 <input id="soundVolume" type="range" min="0" max="100" value="35" aria-label="効果音の音量"><output id="soundVolumeValue" for="soundVolume">35%</output></label><button id="soundTest" class="secondary">試聴</button><span id="soundStatus" role="status" aria-live="polite">音は端末ごとに設定できます</span></section>
+<div id="notice" role="status" aria-live="polite"></div><section id="setup" class="panel"><div class="eyebrow">WELCOME TO THE PARTY</div><h2>パーティに参加する</h2><label>ニックネーム<input id="name" maxlength="24" placeholder="例：はるか"></label><div class="actions"><button id="join">カード端末で参加 →</button><button id="host" class="secondary">抽選端末にする</button></div><p class="hint">司会者1台を抽選端末に。ほかのみんなはカード端末で参加。</p></section>
+<div id="game" hidden><nav><button id="cardTab" class="secondary">マイカード</button><button id="drawTab" class="secondary">抽選ステージ</button></nav><div class="layout"><section id="cardPanel" class="panel"><div class="sectionhead"><div><div class="eyebrow">YOUR LUCKY CARD</div><h2 id="cardName">マイカード</h2></div><span id="cardStatus" class="pill">配布待ち</span></div><div id="card" class="cardgrid"></div><p id="cardHint" class="hint">抽選端末からのカード配布を待っています。</p></section><section id="drawPanel" class="panel stage"><div class="eyebrow">THE LUCKY NUMBER IS</div><div id="ball" aria-live="polite">–</div><p id="drawCount">抽選をはじめよう</p><button id="draw">次のナンバーを抽選 ✦</button><p id="hostHint" class="hint"></p></section><section class="panel numbers"><div class="sectionhead"><h2>出たナンバー</h2><span id="count" class="pill">0 / 75</span></div><div id="history"></div><div id="board" class="board"></div></section><section class="panel"><div class="eyebrow">PARTY PEOPLE</div><h2>参加メンバー <span id="memberCount">0</span></h2><div id="members"></div></section></div></div>
+<footer>✳ BINGO CLUB · 75 BALL PARTY BINGO<p>数字は自動でマーク。たて・よこ・ななめの5つでビンゴ！</p><button id="demo" class="textbutton">ブラウザーでデモを体験</button></footer></main><script>
+(function(root){
+ 'use strict';
+ function card(){const a=[]; for(let c=0;c<5;c++){let pool=Array.from({length:15},(_,i)=>c*15+i+1);for(let r=0;r<5;r++){const x=new Uint32Array(1);crypto.getRandomValues(x);a[r*5+c]=pool.splice(x[0]%pool.length,1)[0];}}a[12]=0;return a;}
+ function score(a,draws){const hit=n=>n===0||draws.includes(n),lines=[];for(let i=0;i<5;i++){lines.push(a.slice(i*5,i*5+5));lines.push([0,1,2,3,4].map(r=>a[r*5+i]));}lines.push([0,6,12,18,24].map(i=>a[i]),[4,8,12,16,20].map(i=>a[i]));return {bingo:lines.filter(l=>l.every(hit)).length,reach:lines.filter(l=>l.filter(hit).length===4).length};}
+ function validCard(a){return Array.isArray(a)&&a.length===25&&a[12]===0&&new Set(a).size===25&&a.every((n,i)=>i===12||Number.isInteger(n)&&n>=Math.floor(i%5)*15+1&&n<=Math.floor(i%5)*15+15);}
+ const api={card,score,validCard};root.Bingo=api;if(typeof module!=='undefined')module.exports=api;
+})(globalThis);
+
+</script>
+<script>
+/* Locally synthesized audio: no network, microphone, or audio files. */
+(function(root){
+ 'use strict';
+ const patterns={
+  enable:[[523,0,.09],[784,.1,.15]],
+  card:[[523,0,.09],[659,.1,.09],[784,.2,.22]],
+  draw:[[196,0,.04],[247,.055,.04],[294,.11,.04],[392,.165,.05],[784,.25,.2],[988,.25,.2]],
+  hit:[[659,0,.1],[988,.11,.23]],
+  reach:[[587,0,.12],[740,.14,.12],[880,.28,.25],[740,.56,.12],[880,.7,.35]],
+  bingo:[[523,0,.14],[659,.15,.14],[784,.3,.14],[1047,.48,.45],[659,.48,.45],[784,.48,.45],[1175,1,.15],[1047,1.18,.6],[784,1.18,.6],[659,1.18,.6]],
+  finish:[[784,0,.18],[659,.2,.18],[523,.4,.5]]
+ };
+ let ctx=null,master=null,enabled=localStorage.getItem('bingo-sound')==='on';
+ const saved=Number(localStorage.getItem('bingo-volume')??35);
+ let volume=Number.isFinite(saved)?Math.min(100,Math.max(0,saved)):35;
+ const active=new Set(),$=id=>document.getElementById(id);
+ const Audio=root.AudioContext||root.webkitAudioContext;
+ function status(message){$('soundStatus').textContent=message;}
+ function update(){
+  const running=enabled&&ctx?.state==='running';
+  $('soundToggle').textContent=running?'♪ 音：オン':enabled?'♪ 音を有効化':'♪ 音をオン';
+  $('soundToggle').setAttribute('aria-pressed',String(!!running));
+  $('soundVolume').value=String(volume);$('soundVolumeValue').textContent=volume+'%';
+ }
+ function stop(){for(const oscillator of active){try{oscillator.stop();}catch(_){}}active.clear();}
+ async function unlock(){
+  if(!enabled||!Audio)return false;
+  try{
+   if(!ctx||ctx.state==='closed'){
+    ctx=new Audio();master=ctx.createGain();master.gain.value=volume/100*.22;master.connect(ctx.destination);
+    ctx.onstatechange=update;
+   }
+   if(ctx.state!=='running')await ctx.resume();
+   update();
+   if(ctx.state!=='running'){status('「音を有効化」を押して再度お試しください');return false;}
+   status('効果音はこの端末で鳴ります');return true;
+  }catch(_){status('音を再生できません。端末の音量や消音設定を確認してください');update();return false;}
+ }
+ function play(name){
+  if(!enabled||!ctx||ctx.state!=='running'||document.hidden||volume===0)return;
+  const pattern=patterns[name];if(!pattern)return;
+  // A new event replaces the previous cue so fast updates cannot stack loudly.
+  stop();
+  try{
+   const base=ctx.currentTime+.015;
+   for(const [frequency,offset,duration] of pattern){
+    const o=ctx.createOscillator(),g=ctx.createGain(),start=base+offset;
+    o.type=name==='draw'&&offset<.2?'triangle':'sine';o.frequency.setValueAtTime(frequency,start);
+    g.gain.setValueAtTime(0,start);g.gain.linearRampToValueAtTime(.24,start+.008);g.gain.exponentialRampToValueAtTime(.001,start+duration);
+    o.connect(g);g.connect(master);active.add(o);
+    o.onended=()=>{active.delete(o);o.disconnect();g.disconnect();};
+    o.start(start);o.stop(start+duration+.02);
+   }
+  }catch(_){stop();status('この端末では効果音を再生できません');}
+ }
+ $('soundToggle').onclick=async()=>{
+  if(enabled&&ctx?.state==='running'){
+   enabled=false;localStorage.setItem('bingo-sound','off');stop();status('効果音をオフにしました');update();return;
+  }
+  enabled=true;localStorage.setItem('bingo-sound','on');if(await unlock())play('enable');update();
+ };
+ $('soundTest').onclick=async()=>{
+  enabled=true;localStorage.setItem('bingo-sound','on');if(await unlock())play('bingo');update();
+ };
+ $('soundVolume').oninput=()=>{
+  const next=Number($('soundVolume').value);volume=Number.isFinite(next)?Math.min(100,Math.max(0,next)):35;
+  localStorage.setItem('bingo-volume',String(volume));
+  if(master&&ctx)master.gain.setValueAtTime(volume/100*.22,ctx.currentTime);
+  if(volume===0)stop();update();
+ };
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();update();});
+ if(!Audio){$('soundToggle').disabled=true;$('soundTest').disabled=true;$('soundVolume').disabled=true;status('この端末では効果音を利用できません');}
+ update();root.BingoSound={play,unlock};
+})(globalThis);
+
+</script>
+<script>
+/* All shared data travels exclusively through the webxdc update API. */
+'use strict';
+const $=id=>document.getElementById(id);
+const uid=()=>crypto.randomUUID ? crypto.randomUUID() : Array.from(crypto.getRandomValues(new Uint32Array(4)),n=>n.toString(16)).join('-');
+let device=localStorage.getItem('bingo-device');if(!device){device=uid();localStorage.setItem('bingo-device',device);}
+let profile=JSON.parse(localStorage.getItem('bingo-profile')||'null'), sessions=new Map(),requests=new Map(),state=null,ready=false,pending=null,timer=null,lastSent=0,busy=false;
+let soundSnapshot=null;
+function gameSound(){
+ const mine=state?.cards?.[device],draws=state?.draws||[];
+ const score=mine?Bingo.score(mine.values,draws):{bingo:0,reach:0};
+ const now={session:state?.session,card:!!mine,draws:draws.length,hits:mine?mine.values.filter(n=>n!==0&&draws.includes(n)).length:0,...score,total:Object.values(state?.cards||{}).reduce((n,c)=>n+Bingo.score(c.values,draws).bingo,0)};
+ const old=soundSnapshot;soundSnapshot=now;
+ if(!ready||!old||old.session!==now.session)return;
+ let cue=null;
+ if(!old.card&&now.card)cue='card';
+ else if(now.bingo>old.bingo||(isHost()&&now.total>old.total))cue='bingo';
+ else if(now.reach>old.reach)cue='reach';
+ else if(now.draws>old.draws)cue=now.draws===75?'finish':now.hits>old.hits?'hit':'draw';
+ if(cue)window.BingoSound?.play(cue);
+}
+const native=!!window.webxdc;
+let demoLog=JSON.parse(localStorage.getItem('bingo-demo')||'[]');
+const api=window.webxdc||{selfName:'ゲスト',sendUpdateInterval:300,sendUpdate(u){demoLog.push(u);localStorage.setItem('bingo-demo',JSON.stringify(demoLog));receive(u);},setUpdateListener(fn){demoLog.forEach(fn);return Promise.resolve();}};
+$('connection').textContent=native?'● グループで共有':'● ブラウザーデモ';
+$('demo').hidden=native;
+$('name').value=profile?.name||api.selfName||'';
+function notice(s){$('notice').textContent=s;}
+function hostSession(){return [...sessions.values()].sort((a,b)=>a.id.localeCompare(b.id))[0]||null;}
+function isHost(){return hostSession()?.owner===device;}
+function send(payload){try{api.sendUpdate({payload},'');}catch(e){notice('送信できませんでした。端末の接続状況を確認してください。');}}
+function publish(){if(!ready||!isHost()||!state)return;pending=JSON.parse(JSON.stringify(state));if(timer)return;const delay=Math.max(0,(api.sendUpdateInterval||10000)-(Date.now()-lastSent));timer=setTimeout(()=>{timer=null;const data=pending;pending=null;lastSent=Date.now();send({type:'state',session:hostSession().id,owner:device,data});},delay);}
+function distribute(){if(!ready||!isHost()||!state)return;let changed=false;for(const [id,r] of requests){if(!state.cards[id]){state.cards[id]={name:r.name,values:Bingo.card()};changed=true;}}if(changed){state.seq++;publish();render();}}
+function receive(update){const p=update.payload;if(!p||typeof p!=='object')return;
+ if(p.type==='create'&&typeof p.id==='string'&&typeof p.owner==='string'){sessions.set(p.id,{id:p.id,owner:p.owner});const selected=hostSession();if(!state||state.session!==selected.id)state={session:selected.id,seq:0,draws:[],cards:{}};}
+ if(p.type==='join'&&typeof p.id==='string'&&typeof p.name==='string'){requests.set(p.id,{name:p.name.slice(0,24)});}
+ if(p.type==='state'&&p.session===hostSession()?.id&&p.owner===hostSession()?.owner){const d=p.data;if(d&&Number.isInteger(d.seq)&&d.seq>=(state?.seq||0)&&Array.isArray(d.draws)&&d.draws.length<=75&&new Set(d.draws).size===d.draws.length&&d.draws.every(n=>Number.isInteger(n)&&n>=1&&n<=75)&&d.cards&&Object.values(d.cards).every(c=>c&&typeof c.name==='string'&&Bingo.validCard(c.values))){state={...d,session:p.session};busy=false;}}
+ render();distribute();
+}
+function saveProfile(){const name=$('name').value.trim()||'ゲスト';profile={name:name.slice(0,24)};localStorage.setItem('bingo-profile',JSON.stringify(profile));}
+$('join').onclick=()=>{if(!ready)return;saveProfile();send({type:'join',id:device,name:profile.name});notice(hostSession()?'カードをリクエストしました。抽選端末を開いてお待ちください。':'参加を登録しました。司会者が抽選端末を設定するとカードが届きます。');render();};
+$('host').onclick=()=>{if(!ready||hostSession())return;saveProfile();const id=uid();send({type:'create',id,owner:device});notice('抽選端末になりました。参加者のリクエストに応じてカードを配布します。');render();};
+$('draw').onclick=()=>{if(!ready||!isHost()||!state||state.draws.length===75||busy)return;window.BingoSound?.unlock();const pool=Array.from({length:75},(_,i)=>i+1).filter(n=>!state.draws.includes(n));const a=new Uint32Array(1);crypto.getRandomValues(a);state.draws.push(pool[a[0]%pool.length]);state.seq++;publish();render();};
+$('cardTab').onclick=()=>$('cardPanel').scrollIntoView({behavior:'smooth',block:'start'});
+$('drawTab').onclick=()=>$('drawPanel').scrollIntoView({behavior:'smooth',block:'start'});
+$('demo').onclick=()=>{if(native)return;if(!hostSession())$('host').click();if(!requests.has(device)){saveProfile();send({type:'join',id:device,name:profile.name});}notice('デモでは、このブラウザーで抽選とカードの両方を体験できます。');};
+function render(){const h=hostSession(),draws=state?.draws||[],cards=state?.cards||{},mine=cards[device];$('setup').hidden=!!profile&&!!h;$('game').hidden=!h;$('host').disabled=!!h||!ready;$('join').disabled=!ready;
+ $('ball').textContent=draws.at(-1)||'–';$('drawCount').textContent=draws.length?`${draws.length}球目のラッキーナンバー`:'抽選をはじめよう';$('count').textContent=`${draws.length} / 75`;$('draw').disabled=!isHost()||draws.length===75||!ready;
+ $('draw').textContent=draws.length===75?'すべての抽選が終了しました':'次のナンバーを抽選 ✦';$('hostHint').textContent=isHost()?'抽選結果はグループに順次配信されます。':'司会者の抽選を待っています。通信状況により反映まで時間がかかります。';
+ $('board').replaceChildren(...Array.from({length:75},(_,i)=>{const e=document.createElement('span');e.className='num'+(draws.includes(i+1)?' on':'');e.textContent=i+1;return e;}));
+ $('history').replaceChildren(...draws.slice(-8).reverse().map(n=>{const e=document.createElement('span');e.className='chip';e.textContent=n;return e;}));
+ $('card').replaceChildren();for(const ch of 'BINGO'){const e=document.createElement('div');e.className='letter';e.textContent=ch;$('card').append(e);}if(mine){$('cardName').textContent=mine.name+' のカード';mine.values.forEach(n=>{const e=document.createElement('div');e.className='cell'+(n===0||draws.includes(n)?' hit':'')+(n===0?' free':'');e.textContent=n===0?'✳ FREE':n;$('card').append(e);});const s=Bingo.score(mine.values,draws);$('cardStatus').textContent=s.bingo?`BINGO! ${s.bingo}ライン`:s.reach?`リーチ ${s.reach}ライン`:'PLAYING';$('cardHint').textContent=s.bingo?'🎉 ビンゴ！おめでとうございます！司会者に知らせましょう。':'当たった数字は自動でマークされます。';}else{$('cardStatus').textContent='配布待ち';$('cardHint').textContent=isHost()?'あなたは抽選端末です。カードでも参加するには下のボタンを押してください。':'カードを受け取るには参加登録が必要です。';const b=document.createElement('button');b.textContent=requests.has(device)?'配布リクエスト済み':'カードを受け取る';b.disabled=requests.has(device);b.onclick=()=>$('join').click();$('card').append(b);}
+ $('memberCount').textContent=Object.keys(cards).length;$('members').replaceChildren(...Object.entries(cards).map(([id,c])=>{const e=document.createElement('div');e.className='person';const name=document.createElement('span');name.textContent=c.name+(id===device?'（あなた）':'');const badge=document.createElement('span');badge.className='result';const s=Bingo.score(c.values,draws);badge.textContent=s.bingo?`✦ BINGO · ${s.bingo}ライン`:s.reach?`リーチ · ${s.reach}`:'参加中';e.append(name,badge);return e;}));
+ gameSound();
+}
+Promise.resolve(api.setUpdateListener(receive,0)).then(()=>{ready=true;render();distribute();}).catch(()=>notice('共有履歴を読み込めませんでした。アプリを開き直してください。'));
+
+</script>
+</body></html>
